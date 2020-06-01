@@ -1,5 +1,6 @@
 ﻿using EShop.Data.Configurations;
 using EShop.Data.Entities;
+using EShop.Data.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace EShop.Data.EF
@@ -27,6 +28,9 @@ namespace EShop.Data.EF
             modelBuilder.ApplyConfiguration(new PromotionConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
             modelBuilder.ApplyConfiguration(new ProductImageConfiguration());
+
+            //Data seeding
+            modelBuilder.Seed();
         }
 
         public DbSet<Product> Products { get; set; }
